@@ -27,6 +27,11 @@ namespace MvcCoreTemplate.Web.Controllers
             return View();
         }
 
+        public string NewsList(int page = 1)
+        {
+            return page.ToString();
+        }
+
         public IActionResult Error()
         {
             return View();

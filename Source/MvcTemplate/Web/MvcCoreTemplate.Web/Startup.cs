@@ -88,9 +88,11 @@ namespace MvcCoreTemplate.Web
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("NewsList", "News/{page?}",
+                    defaults: new { controller = "Home", action = "NewsList" },
+                    constraints: new { page = @"[0-9]+" });
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }
